@@ -14,8 +14,8 @@ def encrypt(text, key):
     encrypted_text = ""
     for char in text:
         if char.isalpha():
-            shifted = (ord(char) + key - 97) % 26 + 97 if char.islower() else (ord(char) + key - 65) % 26 + 65
-            encrypted_text += chr(shifted)
+            encrypted_char = (ord(char) + key - 97) % 26 + 97 if char.islower() else (ord(char) + key - 65) % 26 + 65
+            encrypted_text += chr(encrypted_char)
         else:
             encrypted_text += char
     return encrypted_text
@@ -25,8 +25,8 @@ def decrypt(text, key):
     decrypted_text = ""
     for char in text:
         if char.isalpha():
-            shifted = (ord(char) - key - 97) % 26 + 97 if char.islower() else (ord(char) - key - 65) % 26 + 65
-            decrypted_text += chr(shifted)
+            decrypted_char = (ord(char) - key - 97) % 26 + 97 if char.islower() else (ord(char) - key - 65) % 26 + 65
+            decrypted_text += chr(decrypted_char)
         else:
             decrypted_text += char
     return decrypted_text
